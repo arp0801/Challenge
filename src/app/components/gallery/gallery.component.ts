@@ -23,17 +23,15 @@ export class GalleryComponent implements OnInit {
     this.fileType = e.target.files[0].type;
     if (this.fileType === 'image/png' || this.fileType === 'image/jpeg' ||
       this.fileType === 'image/gif' || this.fileType === 'image/jpg') {
-      console.log(e);
-      let reader = new FileReader();
+      const reader = new FileReader();
       reader.readAsDataURL(e.target.files[0]);
       reader.onload = (event: any) => {
         this.url = event.target.result;
-        // console.log(this.url);
         const fd = {
           image: this.url
         };
-        console.log(fd);
         this.imageService.postImage(fd).subscribe();
+        location.reload();
       };
     } else {
       alert('Please select an Image File');
