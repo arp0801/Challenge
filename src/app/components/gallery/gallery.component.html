@@ -1,0 +1,10 @@
+<body>
+    <header> Gallery </header>
+    <input type="file" id="image" accept="image/*" (change)=onFileSelect($event) style="visibility: hidden;">
+    <label for="image">Upload</label>
+
+    <div *ngFor= "let item of images">
+        <img [src]="item.image" alt="">
+    </div>
+    <footer>FullStack Challenge 2020</footer>
+</body>
