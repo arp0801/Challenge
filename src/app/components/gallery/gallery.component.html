@@ -58,7 +58,7 @@
     <div class="row" style="margin: 0 10vw 1vh 10vw">
         <div class="col-md-4 images" *ngFor="let item of images; index as i">
             <div class="card uploads">
-                <img [src]="item.image" alt="">
+                <img class="preview-image" [src]="item.image" alt="">
 
                 <p>Image {{ i+1 }}</p>
             </div>
