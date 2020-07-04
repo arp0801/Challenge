@@ -2,12 +2,12 @@ body {
     min-height: 100vh;
     background-color: #ebf8ff;
     overflow-y: hidden;
+    text-align: center;
 }
 header{
     background-color: #2c5282;
     min-height: 5vh;
     color: white;
-    text-align: center;
     font-size: 4vh;
 }
 footer{
@@ -16,28 +16,35 @@ footer{
     position: fixed;
     bottom: 0;
     width: 100%;
-    text-align: center;
     font-size: 2.5vh;
     color: white;
 }
-// .upload-btn{
-//     cursor: pointer;
-//     background: white;
-//     border: none;
-//     height: 4vh;
-//     width: 5vw;
-//     border-radius: 4px;
-//     margin-top: 4vh;
-//     float: right;
-//     margin-right: 47.5vw;
-//     transition: transform(2s ease);
-//     color: #2c5282;
-//     font-weight: bold;
-// }
+.upload-button {
+    margin: 10px 0 25px 0;
 
-// .upload-btn:hover{
-//     transform: scale(1.2);
-// }
+    button {
+        box-shadow: 0 3px 0 0 #2c5282;
+        border-radius: 4px;
+        background-color: white;
+        border: none;
+        min-width: 10%;
+        width: auto;
+    }
+    .upload-icon {
+        height: 15px;
+        color: #2c5282;
+
+    }
+    label {
+        cursor: pointer;
+        width: 80%;
+        height: 100%;
+        font-size: 80%;
+        font-weight: bold;
+        color: #2c5282;
+    }
+}
+
 .images {
     margin-bottom: 3%;
     height: 40vh;
@@ -54,7 +61,6 @@ footer{
     }
 
     p {
-        text-align: center;
         color: #4299e1;
         font-size: 3vh;
         margin-top: 6px;
