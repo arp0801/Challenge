@@ -13,19 +13,16 @@ export class GalleryComponent implements OnInit {
   images: any;
   fileType: string;
 
-  constructor( public imageService: UploadsService) { }
+  constructor(public imageService: UploadsService) { }
 
   ngOnInit(): void {
-    this.imageService.getImages().subscribe(data => {
-      this.images = data;
-      console.log(this.images);
-    });
+    this.getUploads();
   }
 
   onFileSelect(e) {
     this.fileType = e.target.files[0].type;
     if (this.fileType === 'image/png' || this.fileType === 'image/jpeg' ||
-        this.fileType === 'image/gif' || this.fileType === 'image/jpg' ) {
+      this.fileType === 'image/gif' || this.fileType === 'image/jpg') {
       console.log(e);
       let reader = new FileReader();
       reader.readAsDataURL(e.target.files[0]);
@@ -42,5 +39,9 @@ export class GalleryComponent implements OnInit {
       alert('Please select an Image File');
     }
   }
-
+  getUploads() {
+    this.imageService.getImages().subscribe(data => {
+      this.images = data;
+    });
+  }
 }

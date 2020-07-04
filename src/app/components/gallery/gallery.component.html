@@ -1,10 +1,20 @@
 <body>
     <header> Gallery </header>
     <input type="file" id="image" accept="image/*" (change)=onFileSelect($event) style="visibility: hidden;">
-    <label for="image">Upload</label>
+    <br>
+    <div>
+        <button>
+            <label for="image">Upload</label>
+        </button>
+    </div>
+    <div class="row" style="margin: 0 10vw 1vh 10vw">
+        <div class="col-md-4 images" *ngFor= "let item of images; index as i">
+            <div class="card uploads">
+                <img [src]="item.image" alt="">
 
-    <div *ngFor= "let item of images">
-        <img [src]="item.image" alt="">
+                <p>Image {{ i+1 }}</p>
+            </div>
+        </div>
     </div>
     <footer>FullStack Challenge 2020</footer>
 </body>
