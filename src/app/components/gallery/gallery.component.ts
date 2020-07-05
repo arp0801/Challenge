@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UploadsService } from 'src/app/service/uploads.service';
+import { of } from 'rxjs';
 
 
 @Component({
@@ -11,6 +12,7 @@ export class GalleryComponent implements OnInit {
 
   url: string;
   images: any;
+  viewImages = [];
   fileType: string;
 
   constructor(public imageService: UploadsService) { }
@@ -31,7 +33,7 @@ export class GalleryComponent implements OnInit {
           image: this.url
         };
         this.imageService.postImage(fd).subscribe();
-        location.reload();
+        this.ngOnInit();
       };
     } else {
       alert('Please select an Image File');
@@ -40,6 +42,11 @@ export class GalleryComponent implements OnInit {
   getUploads() {
     this.imageService.getImages().subscribe(data => {
       this.images = data;
+      let number = this.images.length;
+      for ( let i = 0 ; i < this.images.length ; i++ ) {
+      number = number - 1;
+      this.viewImages[i] = this.images[number];
+      }
     });
   }
 }
